@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet preload" as="style" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <section class="checkout-part billing-address section-box">
+        <h2>Fakturační údaje</h2>
+        <div class="form-group populated">
+            <label class="required" for="input-country">Stát</label>
+            <select class="form-control form-select extra-tax-element-switcher" id="input-country" name="country" required>
+                <option data-country-iso="CZ" value="52" selected="selected">Česká republika</option>
+                <option data-country-iso="SK" value="52" selected="selected">Slovensko</option>
+                <option data-country-iso="DE" value="52" selected="selected">Německo</option>
+                <option data-country-iso="FI" value="52" selected="selected">Finsko</option>
+                <option data-country-iso="AT" value="52" selected="selected">At</option>
+
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte jméno">
+                    <label class="required" for="inputFirstName">Jméno</label>
+                    <input type="text" name="firstName" class="form-control" id="inputFirstName" value="" placeholder="Jméno" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte příjmení">
+                    <label class="required" for="inputLastName">Přijmení</label>
+                    <input type="text" name="lastName" class="form-control" id="inputLastName" value="" placeholder="Příjmení" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte e-mailovou adresu (např. prijmeni@spolecnost.cz)">
+                    <label class="required" for="inputEmail">E-mail</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail" value="" placeholder="E–mail" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte váš telefon s mezinárodní předvolbou (např. +420), nebo i bez ní">
+                    <label class="required" for="inputPhone">Telefon</label>
+                    <input type="tel" name="phone" class="form-control" id="inputPhone" value="" placeholder="Telefon" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group required" title="Zadejte ulici a číslo domu">
+            <label class="required" for="inputStreetAddress">Ulice a číslo domu</label>
+            <input type="text" name="streetAddress" data-type="streetAddress" data-pattern="\s[0-9]" class="form-control" id="inputStreetAddress" value="" placeholder="Ulice a číslo domu" required>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte město">
+                    <label class="required" for="inputCity">Město</label>
+                    <input type="text" name="city" class="form-control" id="inputCity" value="" placeholder="Město" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group required" title="Zadejte poštovní směrovací číslo">
+                    <label class="required" for="input-postal-code">PSČ</label>
+                    <input type="text" data-type="postal" name="postalCode" class="form-control" id="input-postal-code" value="" placeholder="PSČ" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAdditionalInfo">Poznámka</label>
+            <textarea name="additionalInfo" class="form-control" id="inputAdditionalInfo" rows="3" placeholder="Poznámky k Vaší objednávce ohledně produktů a vyřízení ze strany prodejce"></textarea>
+        </div>
+    </section>
+
+    <section class="checkout-part shipping-address section-box">
+        <input type="hidden" name="differentShippingAddressPresent" value="1">
+        <label>
+            <input type="checkbox" id="shipping-toggle" name="differentShippingAddress" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#checkout-part-shipping">
+            <span>Dodací adresa je odlišná</span>
+        </label>
+        <div class="checkout-part-collapser section-box collapse" id="checkout-part-shipping">
+            <h2>Doručovací údaje</h2>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte jméno">
+                        <label class="required" for="inputShippingFirstName">Jméno</label>
+                        <input type="text" name="shippingFirstName" class="form-control" id="inputShippingFirstName" value="" placeholder="Jméno" required data-validate-if="#shipping-toggle:checked">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte příjmení">
+                        <label class="required" for="inputShippingLastName">Přijmení</label>
+                        <input type="text" name="shippingLastName" class="form-control" id="inputShippingLastName" value="" placeholder="Příjmení" required data-validate-if="#shipping-toggle:checked">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group" title="Zadejte název firmy, kam se bude doručovat">
+                        <label for="inputShippingCompanyName">Název firmy</label>
+                        <input maxlength="150" type="text" name="shippingCompanyName" class="form-control" id="inputShippingCompanyName" value="" placeholder="Název firmy">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte váš telefon s mezinárodní předvolbou (např. +420), nebo i bez ní">
+                        <label class="required" for="inputStreetPhone">Telefon</label>
+                        <input type="tel" name="shippingPhone" class="form-control" id="inputShippingPhone" value="" placeholder="Telefon" required data-validate-if="#shipping-toggle:checked">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required" title="Zadejte ulici a číslo domu">
+                <label class="required" for="inputShippingStreetAddress">Ulice a číslo domu</label>
+                <input type="text" name="shippingStreetAddress" data-type="streetAddress" data-pattern="\s[0-9]" class="form-control" id="inputShippingStreetAddress" value="" placeholder="Ulice a číslo domu" required data-validate-if="#shipping-toggle:checked">
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte město">
+                        <label class="required" for="inputShippingCity">Město</label>
+                        <input type="text" name="shippingCity" class="form-control" id="inputShippingCity" value="" placeholder="Město" required data-validate-if="#shipping-toggle:checked">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte poštovní směrovací číslo">
+                        <label class="required" for="input-shipping-postal-code">PSČ</label>
+                        <input type="text" data-type="postal" name="shippingPostalCode" class="form-control" id="input-shipping-postal-code" value="" placeholder="PSČ" required data-validate-if="#shipping-toggle:checked">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group populated">
+                <label class="required" for="input-shipping-country">Stát</label>
+                <select class="form-control form-select" id="input-shipping-country" name="shippingCountry" required>
+                    <option data-country-iso="CZ" value="52" selected="selected">Česká republika</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout-part company section-box">
+        <input type="hidden" name="isCompanyAddressPresent" value="1">
+        <label>
+            <input type="checkbox" name="isCompanyAddress" aria-expanded="true" id="company-toggle" data-bs-toggle="collapse" data-bs-target="#checkout-part-company" class="">
+            <span>Nakupuji na firmu</span>
+        </label>
+        <div class="checkout-part-collapser section-box collapse show" id="checkout-part-company">
+            <h2>Údaje pro nákup na firmu</h2>
+            <div class="section-box grid-box required">
+                <label><input name="vatPayer" value="" type="radio" checked="checked">&nbsp;Neplátce daně</label>
+                <label><input id="input-vat-payer" name="vatPayer" value="true" type="radio">&nbsp;Plátce daně</label>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte název firmy">
+                        <label class="required" for="inputCompanyName">Název firmy</label>
+                        <input maxlength="150" type="text" name="companyName" class="form-control" id="inputCompanyName" value="" placeholder="Název firmy" data-validate-if="#company-toggle:checked" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputPONumber">Označení objednávky</label>
+                        <input type="text" name="poNumber" class="form-control" id="inputPONumber" value="" placeholder="Označení objednávky">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group required" title="Zadejte identifikační číslo společnosti">
+                        <label class="required" for="inputCompanyIdentificationNumber">IČO</label>
+                        <input type="text" data-type="company-id" name="companyIdentificationNumber" class="form-control" id="inputCompanyIdentificationNumber" value="" placeholder="IČO" data-validate-if="#company-toggle:checked" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" title="Zadejte DIČ">
+                        <label for="inputCompanyTaxIdentity">DIČ</label>
+                        <input type="text" data-type="tax-identity" name="companyTaxIdentity" class="form-control" id="inputCompanyTaxIdentity" placeholder="DIČ" value="" data-validate-if="#input-vat-payer:checked">
+                    </div>
+                </div>
+                <div class="col-sm-6 extra-tax-field" style="display: none;">
+                    <div class="form-group" title="Zadejte DIČ DPH">
+                        <label for="inputExtraTaxId">IČ DPH</label>
+                        <input type="text" data-type="extraTaxId" name="extraTaxId" class="form-control extra-tax-element" id="inputExtraTaxId" placeholder="IČ DPH" value="" data-validate-if="#input-vat-payer:checked">
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    <footer class="btn-cols"><button class="btn btn-primary btn-checkout" name="process" type="submit">Přejít na shrnutí objednávky</button><a href="/cs" class="btn btn-light">Vrátit se k nákupu</a></footer>
+    <script src="script.js"></script>
+</body>
+</html>
